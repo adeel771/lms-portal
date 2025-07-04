@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   <div class="container">
+ 
+
+    <div id="login-page" class="page active">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h1>Classroom Management Portal</h1>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Login to Your Account</h2>
+        </div>
+        
+        <form id="login-form">
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="login-email" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" id="login-password" required>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Role</label>
+            <select class="form-control" id="login-role" required>
+              <option value="">Select Role</option>
+              <option value="admin">Admin</option>
+              <option value="teacher">Teacher</option>
+              <option value="student">Student</option>
+            </select>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+        </form>
+      </div>
+      
+      <div class="alert alert-warning">
+        <strong><i class="fas fa-info-circle"></i> Demo Accounts:</strong><br>
+        Admin: adeel@gmail.com / admin123<br>
+        Teacher: teacher@example.com / teacher123<br>
+        Student: student@example.com / student123
+      </div>
+    </div>
+    
+    
+   
+
+
+    <div id="admin-dashboard" class="page">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-icon">A</div>
+          <h1>Admin Dashboard</h1>
+        </div>
+        <div class="nav">
+          <button id="admin-logout" class="btn btn-outline">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+      
+      <div class="tabs">
+        <div class="tab active" data-tab="teachers">Teachers</div>
+        <div class="tab" data-tab="activities">Activities</div>
+      </div>
+      
+      <div class="tab-content active" id="teachers-tab">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Manage Teachers</h2>
+            <button id="add-teacher-btn" class="btn btn-primary">
+              <i class="fas fa-plus"></i> Add Teacher
+            </button>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" class="form-control" id="search-teacher" placeholder="Search teachers...">
+          </div>
+          
+          <div id="teachers-list">
+           
+
+
+          </div>
+        </div>
+      </div>
+      
+      <div class="tab-content" id="activities-tab">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">System Activities</h2>
+          </div>
+          
+          <div id="activities-list">
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+   
+
+    <div id="teacher-dashboard" class="page">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-icon">T</div>
+          <h1>Teacher Dashboard</h1>
+        </div>
+        <div class="nav">
+          <button id="create-class-btn" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Create Class
+          </button>
+          <button id="teacher-logout" class="btn btn-outline">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">My Classes</h2>
+        </div>
+        
+        <div id="classes-container" class="class-grid">
+         
+        </div>
+      </div>
+    </div>
+    
+    
+    <div id="student-dashboard" class="page">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-icon">S</div>
+          <h1>Student Dashboard</h1>
+        </div>
+        <div class="nav">
+          <button id="join-class-btn" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Join Class
+          </button>
+          <button id="student-logout" class="btn btn-outline">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">My Classes</h2>
+        </div>
+        
+        <div id="student-classes" class="class-grid">
+          
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">My Assignments</h2>
+        </div>
+        
+        <div id="student-assignments">
+         
+        </div>
+      </div>
+    </div>
+    
+ 
+    <div id="class-detail" class="page">
+      <div class="header">
+        <div class="logo">
+          <div class="logo-icon">C</div>
+          <h1 id="class-detail-title">Class Details</h1>
+        </div>
+        <div class="nav">
+          <button id="back-to-dashboard" class="btn btn-outline">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+          </button>
+        </div>
+      </div>
+      
+      <div class="dashboard">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Students</h2>
+            <button id="add-student-btn" class="btn btn-primary">
+              <i class="fas fa-plus"></i> Add Student
+            </button>
+          </div>
+          
+          <div id="students-list">
+            
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Assignments</h2>
+            <button id="add-assignment-btn" class="btn btn-primary">
+              <i class="fas fa-plus"></i> Add Assignment
+            </button>
+          </div>
+          
+          <div id="assignments-list">
+          
+
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Attendance</h2>
+            <button id="mark-attendance-btn" class="btn btn-primary">
+              <i class="fas fa-check"></i> Mark Attendance
+            </button>
+          </div>
+          
+          <div id="attendance-container">
+         
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+
+  <div id="add-teacher-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Teacher</h3>
+        <span class="close">&times;</span>
+      </div>
+      <form id="add-teacher-form">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="teacher-name" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" id="teacher-email" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" id="teacher-password" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-user-plus"></i> Add Teacher
+        </button>
+      </form>
+    </div>
+  </div>
+  
+
+
+  <div id="create-class-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create New Class</h3>
+        <span class="close">&times;</span>
+      </div>
+      <form id="create-class-form">
+        <div class="form-group">
+          <label class="form-label">Class Name</label>
+          <input type="text" class="form-control" id="class-name" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <input type="text" class="form-control" id="class-subject" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" id="class-description" rows="3"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-plus-circle"></i> Create Class
+        </button>
+      </form>
+    </div>
+  </div>
+  
+ 
+  <div id="join-class-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Join a Class</h3>
+        <span class="close">&times;</span>
+      </div>
+      <form id="join-class-form">
+        <div class="form-group">
+          <label class="form-label">Class Code</label>
+          <input type="text" class="form-control" id="class-code" placeholder="Enter class code" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-sign-in-alt"></i> Join Class
+        </button>
+      </form>
+    </div>
+  </div>
+  
+
+
+  <div id="add-assignment-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Assignment</h3>
+        <span class="close">&times;</span>
+      </div>
+      <form id="add-assignment-form">
+        <div class="form-group">
+          <label class="form-label">Title</label>
+          <input type="text" class="form-control" id="assignment-title" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" id="assignment-description" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Due Date</label>
+          <input type="date" class="form-control" id="assignment-due-date" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Max Points</label>
+          <input type="number" class="form-control" id="assignment-points" value="100" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">
+          <i class="fas fa-plus"></i> Add Assignment
+        </button>
+      </form>
+    </div>
+  </div>
+  
+ 
+  <div id="mark-attendance-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Mark Attendance</h3>
+        <span class="close">&times;</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Date</label>
+        <input type="date" class="form-control" id="attendance-date" required>
+      </div>
+      
+      <div id="attendance-students">
+       
+
+      </div>
+      
+      <button id="save-attendance-btn" class="btn btn-primary">
+        <i class="fas fa-save"></i> Save Attendance
+      </button>
+    </div>
+  </div>
+  
+  
+  <div class="fab" id="fab-help" title="Help">
+    <i class="fas fa-question"></i>
+  </div>
+  
+  <div class="footer">
+    <p>Classroom Management Portal | Designed by MUHAMMAD ADEEL</p>
+  </div>
+  <script src="./script.js"></script>
+
+</body>
+</html>
